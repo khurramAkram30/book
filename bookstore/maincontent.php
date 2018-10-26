@@ -1,9 +1,14 @@
 
+<?php
+include 'header.php';
+ ?>
+
+
    <!-- End Cart Panel -->
   <div class="slider__container slider--one">
             <div class="slider__activation__wrap owl-carousel owl-theme">
                 <!-- Start Single Slide -->
-                <div class="slide slider__full--screen" style="background: rgba(0, 0, 0, 0) url(images/slider/bg/1.png) no-repeat scroll center center / cover ;">
+                <div class="slide slider__full--screen" style="background: rgba(0, 0, 0, 0) url(images/maincontent.jpg) no-repeat scroll center center / cover ;">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-4 col-sm-12 col-xs-12">
@@ -82,7 +87,7 @@
                                     <div class="product__hover__info">
                                         <ul class="product__action">
                                             <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                            <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
+                                            <li><a title="Add TO Cart" href="cart.php?"><span class="ti-shopping-cart"></span></a></li>
                                         </ul>
                                     </div>
                                     <div class="add__to__wishlist">
@@ -90,9 +95,16 @@
                                     </div>
                                 </div>
                                 <div class="product__details">
+                                <form method="post" name="" action="cart.php?action=add&id='.$id.'&name='.$row[1].'">
+                                    <input type="hidden" name="pro_name" value='.$row[1].'>
+                                    <input type="hidden" name="pro_price" value='.$row[6].'>
+                                    
                                     <h2 style="text-align:center"><a href="product-details.php?id='.$id.'">Simple Black Clock</a></h2>
                                         <h2 style="text-align:center">RS:200</h2>
-                                </div>
+                                        <input type="submit" style="text-align:center;width:100%" name="btn_submit"  value="Add To Cart" class="btn">
+                                    
+ </form>    
+                                        </div>
                             </div>
                         </div>';
                         }
@@ -104,8 +116,7 @@
                         <!-- End Single Product -->
                     </div>
                 </div>
-                </div>
-             
+                    </div>
  </section>
    <?php
  include 'footer.php';
