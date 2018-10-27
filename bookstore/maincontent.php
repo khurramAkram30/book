@@ -1,7 +1,5 @@
-
-<?php
-include 'header.php';
- ?>
+<!-- 
+ -->
 
 
    <!-- End Cart Panel -->
@@ -46,7 +44,7 @@ include 'header.php';
             
        
 <div class="container">
-       
+        <h2 style="text-align: center">Latest Product</h2>
                 <div class="htc__product__container">
                     <!-- Start Product MEnu -->
                    
@@ -69,7 +67,7 @@ include 'header.php';
                        
                         <?php 
                         include 'conn.php';
-                        $query=mysqli_query($conn,"SELECT * FROM products");
+                        $query=mysqli_query($conn,"SELECT * FROM products LIMIT 10 ");
 
 
                         while ($row=mysqli_fetch_array($query)) 
@@ -98,11 +96,19 @@ include 'header.php';
                                 <form method="post" name="" action="cart.php?action=add&id='.$id.'&name='.$row[1].'">
                                     <input type="hidden" name="pro_name" value='.$row[1].'>
                                     <input type="hidden" name="pro_price" value='.$row[6].'>
+                                    <input type="hidden" name="pro_image" value='.$row[7].'>
                                     
-                                    <h2 style="text-align:center"><a href="product-details.php?id='.$id.'">Simple Black Clock</a></h2>
-                                        <h2 style="text-align:center">RS:200</h2>
+                                    <h2 style="text-align:center">
+                                    <a href="product-details.php?id='.$id.'">
+                                          '.$row[1].'
+                                        </a></h2>
+                                        <h2 style="text-align:center">RS:
+                                          '.$row[6].'</h2>
+                                        <input type="number"
+                                        placeholder="EnterQuantity" name="qty"
+                                        style="width:50%;">
                                         <input type="submit" style="text-align:center;width:100%" name="btn_submit"  value="Add To Cart" class="btn">
-                                    
+                                        
  </form>    
                                         </div>
                             </div>
@@ -119,5 +125,4 @@ include 'header.php';
                     </div>
  </section>
    <?php
- include 'footer.php';
  ?>

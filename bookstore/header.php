@@ -1,5 +1,7 @@
 <?php 
 // session_start();
+// echo $_SESSION["id"];
+// echo $_SESSION["shopping_cart"];
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -56,9 +58,9 @@
                         <div class="col-md-8 col-lg-8 d-none d-md-block">
                             <nav class="mainmenu__nav  d-none d-lg-block">
                                 <ul class="main__menu">
-                                    <li class="drop"><a href="maincontent.php">Home</a>
+                                    <li class="drop"><a href="index.php">Home</a>
                                     </li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="#">About</a></li>
                                    
                                       
                                           
@@ -71,15 +73,16 @@
                                            while($row=mysqli_fetch_array($query)){
                                             $cat_id=$row[0];
                                             $cat_name=$row[1];
-                                            echo "<li><a href='categories.php?catid=".$cat_id."'>".$cat_name."</a>";
-                                            echo "<ul >";
+                                            echo "
+                                           <li> <a href='categories.php?catid=".$cat_id."'>".$cat_name."</a>";
+                                            echo "<ul class='dropdown'>";
                                             $sub=mysqli_query($conn,"select * from sub_category where cat_name='".$cat_id."'");
                                                 while($row1=mysqli_fetch_array($sub)){
                                                     $catid=$row1[1];
                                                     $subcatid=$row1[0];
                                                     $subcatname=$row1[2];
                                                     
-                                                    echo "<li><a style='backgroung:red !important' href='categories.php?catid=".$cat_id."&subcat_id=".$subcatid."'>$subcatname</li>";
+                                                    echo "<li> <a  href='categories.php?catid=".$cat_id."&subcat_id=".$subcatid."'>$subcatname</a></li>";
                                                     // if($cat_id == $catid){
                                                    
                                                                                                 
@@ -96,8 +99,8 @@
                                             
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">contact</a></li>
-                                <li><a href="contact.html">Faqs</a></li>
+                                    <li><a href="contact.php">contact</a></li>
+                                <!-- <li><a href="contact.html">Faqs</a></li> -->
                                 </ul>
 
                             </nav>
@@ -130,10 +133,29 @@
                         <!-- End MAinmenu Ares -->
                         <div class="col-md-2 col-lg-2 col-6">  
                             <ul class="menu-extra">
-                                <li class="search search__open d-none d-sm-block"><span class="ti-search"></span></li>
-                                <li><a href="login-register.html"><span class="ti-user"></span></a></li>
-                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
-                                <li class="toggle__menu d-none d-md-block"><span class="ti-menu"></span></li>
+                                <!-- <li class="search search__open d-none d-sm-block"><span class="ti-search"></span></li> -->
+                                <?php 
+                                if($_SESSION["id"] == null){
+                                        echo '
+                         <li><a href="login.php"><span class="ti-user"></span></a>
+                                </li>';
+
+                                }else{
+    echo '
+                         <li><a href="logout.php"><span class="ti-user"></span></a>
+                           
+                                </li>
+
+                         '
+                         ;                                    
+                                }
+                                
+                                ?>
+
+                                <li class="cart__menu">
+                                    <a href="cart.php">
+                                    <span class="ti-shopping-cart"></span></a></li>
+                                <!-- <li class="toggle__menu d-none d-md-block"><span class="ti-menu"></span></li> -->
                             </ul>
                         </div>
                     </div>

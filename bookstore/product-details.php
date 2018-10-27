@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'header.php';
 ?>
 
@@ -55,7 +56,7 @@ if($_GET["id"]){
                                 <img src="images/logo/uniqlo.png" alt="logo">
                             </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                       <!--  <p>Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.</p> -->
                     </div>
                     <ul class="sidebar__thumd">
                         <li><a href="#"><img src="images/sidebar-img/1.jpg" alt="sidebar images"></a></li>
@@ -183,22 +184,22 @@ if($_GET["id"]){
                             <ul class="nav product__small__images" role="tablist">
                                 <li role="presentation" class="pot-small-img active">
                                     <a href="#img-tab-1" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/1.jpg" alt="small-image">
-                                    </a>
+                                    <!--     <img src="images/product-details/small-img/1.jpg" alt="small-image">
+                                     --></a>
                                 </li>
                                 <li role="presentation" class="pot-small-img">
                                     <a href="#img-tab-2" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/2.jpg" alt="small-image">
-                                    </a>
+                                  <!--       <img src="images/product-details/small-img/2.jpg" alt="small-image">
+                                   -->  </a>
                                 </li>
                                 <li role="presentation" class="pot-small-img hidden-xs">
                                     <a href="#img-tab-3" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/3.jpg" alt="small-image">
-                                    </a>
+                                    <!--     <img src="images/product-details/small-img/3.jpg" alt="small-image">
+                                     --></a>
                                 </li>
                                 <li role="presentation" class="pot-small-img d-no">
                                     <a href="#img-tab-4" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/4.jpg" alt="small-image">
+                                      <!--   <img src="images/product-details/small-img/4.jpg" alt="small-image"> -->
                                     </a>
                                 </li>
                             </ul>
@@ -238,7 +239,7 @@ if($_GET["id"]){
                                 <span class="rat__qun">(Based on 0 Ratings)</span>
                             </div>
                             <div class="pro__details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod temf incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostr exercitation ullamco laboris nisi ut aliquip ex ea. </p>
+                                <p><!-- Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod temf incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostr exercitation ullamco laboris nisi ut aliquip ex ea. </p> -->
                             </div>
                             <ul class="pro__dtl__prize">
                                 <li class=""><?php echo "RS:" . $price; ?></li>
